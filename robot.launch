@@ -1,0 +1,11 @@
+<launch>
+  <param name="robot_description" textfile="$(find pathplan)/robot.urdf"/>
+  <param name="use_gui" value="true"/>
+  <node name = "jstate" pkg = "joint_state_publisher" type = "joint_state_publisher" args = "gui:=true"/>
+  <node name = "rstate" pkg = "robot_state_publisher" type = "robot_state_publisher" args= "gui:=true"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pathplan)/robot.rviz" required="true"/>
+  <node name="markers" pkg="pathplan" type="markers.py"/>
+
+
+</launch>
